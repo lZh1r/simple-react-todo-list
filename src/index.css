@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import 'tailwindcss';
+
+
+@theme {
+    --font-primary: "Mulish", 'Arial';
+    --color-dark-bg: #221427;
+    --color-light-bg: #36213E;
+    --color-primary-text: #B8F3FF;
+    --color-button-accent: #63768D;
+}
