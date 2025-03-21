@@ -7,9 +7,27 @@ export default function TaskElement({ taskName, index, color, removeTask}:
 { taskName: string, index: number, color: string, removeTask: Callback }) {
 
     const [col, setCol] = useState(color);
+    const [textDeco, setTextDeco] = useState("none");
+    const [done, setDone] = useState(false);
 
     function handleColorChange(e: ChangeEvent<HTMLInputElement>) {
         setCol(e.target.value);
+    }
+
+    function handleTaskCompletion() {
+
+        let newDeco;
+
+        if (done) {
+            newDeco = "none";
+        }
+        else {
+            newDeco = "line-through";
+        }
+
+        setDone(!done);
+
+        setTextDeco(newDeco);
     }
 
     return (
@@ -17,7 +35,8 @@ export default function TaskElement({ taskName, index, color, removeTask}:
                     hover:bg-light-bg rounded-4xl" key={index}>
             <input type="color" value={col} onChange={handleColorChange}
                    className="w-12 h-12 self-center outline-none cursor-pointer [&::-webkit-color-swatch]:rounded-full"/>
-            <p style={{color: col}} className="self-center text-wrap">{taskName}</p>
+            <p style={{color: col, textDecoration: textDeco}} onClick={() => handleTaskCompletion()}
+               className="self-center text-wrap cursor-pointer">{taskName}</p>
             <StylishButton text="Remove" callback={() => removeTask(index)}/>
         </li>
     )

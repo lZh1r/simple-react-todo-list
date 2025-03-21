@@ -27,7 +27,7 @@ export default function TodoList() {
         <div className="text-primary-text font-primary text-xl text-center mt-10">
             <ul>
                 {tasks.map((name, index) => (
-                    <TaskElement taskName={name} index={index} color={color} removeTask={handleTaskRemove}/>
+                    <TaskElement key={index} taskName={name} index={index} color={color} removeTask={handleTaskRemove}/>
                 ))}
             </ul>
             <div className="mt-10">
