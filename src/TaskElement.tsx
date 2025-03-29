@@ -15,19 +15,8 @@ export default function TaskElement({ taskName, index, color, removeTask}:
     }
 
     function handleTaskCompletion() {
-
-        let newDeco;
-
-        if (done) {
-            newDeco = "none";
-        }
-        else {
-            newDeco = "line-through";
-        }
-
+        setTextDeco(done ? "none" : "line-through");
         setDone(!done);
-
-        setTextDeco(newDeco);
     }
 
     return (
